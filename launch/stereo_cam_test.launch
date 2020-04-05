@@ -1,7 +1,7 @@
 <launch>
   <node name="stereo_cam_node" pkg="usb_cam" type="stereo_cam_node" output="screen" >
+     <param name="source" value="video" />  <!--  'cam' for using your stereo camera (eg ZED) OR 'video' for video file stored at location video_dir specified below -->
     <param name="video_device" value="/dev/video0" /> 
-    <param name="source" value="video" />  <!--  'cam' for using your stereo camera (eg ZED) OR 'video' for video file stored at location video_dir specified below -->
     <param name="video_dir" value="/home/interface/softwares/tensorflow/Tensorflow_dataset/videos/output_show.mp4" />  
     <param name="image_width" value="1280" /> <!--1344, 2560, 3840, 4416 -->
     <param name="image_height" value="720" /> <!--376,720,1080,1242 -->

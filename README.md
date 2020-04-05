@@ -1,15 +1,15 @@
-usb_cam [![Build Status](https://api.travis-ci.org/bosch-ros-pkg/usb_cam.png)](https://travis-ci.org/bosch-ros-pkg/usb_cam)
-=======
+# usb_cam
+A supplement to the original [usb_cam](https://github.com/ros-drivers/usb_cam) ROS Driver for V4L USB Cameras to include node which can read raw images from steoreo cameras such as ZED and output separated images as well as calibration data in *sensor_msgs::CameraInfo* format.
 
-#### A ROS Driver for V4L USB Cameras
-This package is based off of V4L devices specifically instead of just UVC.
+## Usage
+The *stereo_cam_node* can be used to get images from stereo cameras like ZED that give concatenated images as raw input OR you can specify the video file from which you would like to stream video. Specify the following params in the **stereo_cam_test.launch** file
+* source: *cam* for camera and *video* for streaming video from a file
+* video_device: camera port on your device. default: /dev/video0
+* video_dir: video file address
+* image_width: width of camera input frame
+* image_height: height of camera input frame
+* left_camera_info_url: address of the yaml calibration file on your device. a sample has been provided in the calibration folder for ZED camera.
+* right_camera_info_url: address of the yaml calibration file on your device. a sample has been provided in the calibration folder for ZED camera.
 
-For full documentation, see [the ROS wiki](http://ros.org/wiki/usb_cam).
-
-[Doxygen](http://docs.ros.org/indigo/api/usb_cam/html/) files can be found on the ROS wiki.
-
-### License
-usb_cam is released with a BSD license. For full terms and conditions, see the [LICENSE](LICENSE) file.
-
-### Authors
-See the [AUTHORS](AUTHORS.md) file for a full list of contributors.
+Just run
+> roslaunch usb_cam stereo_cam_test.launch 
